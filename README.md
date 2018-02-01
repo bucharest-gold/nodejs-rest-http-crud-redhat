@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bucharest-gold/nodejs-rest-http-crud.svg?branch=master)](https://travis-ci.org/bucharest-gold/nodejs-rest-http-crud) [![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/nodejs-rest-http-crud/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/nodejs-rest-http-crud?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/nodejs-rest-http-crud.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/bucharest-gold/nodejs-rest-http-crud-redhat.svg?branch=master)](https://travis-ci.org/bucharest-gold/nodejs-rest-http-crud-redhat) [![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/nodejs-rest-http-crud-redhat/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/nodejs-rest-http-crud-redhat?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/nodejs-rest-http-crud-redhat.svg)](https://greenkeeper.io/)
 
 Example CRUD Application
 
@@ -38,5 +38,5 @@ For this example, you will also need a postgres db running on your Minishift clu
 
 Then run `npm run openshift` to deploy your app
 
-Then you can navigate to the newly exposed route, something similar to "http://nodejs-rest-http-crud-boosters.192.168.99.100.nip.io/",  this will probably be different based on your Minishift IP address
+Then you can navigate to the newly exposed route, something similar to "http://nodejs-rest-http-crud-redhat-boosters.192.168.99.100.nip.io/",  this will probably be different based on your Minishift IP address
 

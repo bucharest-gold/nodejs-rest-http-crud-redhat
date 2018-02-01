@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-rest-http-crud",
+  "name": "nodejs-rest-http-crud-redhat",
   "description": "",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
@@ -27,12 +27,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bucharest-gold/nodejs-rest-http-crud.git"
+    "url": "git+https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat.git"
   },
   "bugs": {
-    "url": "https://github.com/bucharest-gold/nodejs-rest-http-crud/issues"
+    "url": "https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/issues"
   },
-  "homepage": "https://github.com/bucharest-gold/nodejs-rest-http-crud#readme",
+  "homepage": "https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat#readme",
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "~4.16.0",

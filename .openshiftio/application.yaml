@@ -30,7 +30,7 @@ objects:
 - apiVersion: v1
   kind: ImageStream
   metadata:
-    name: nodejs-rest-http-crud
+    name: nodejs-rest-http-crud-redhat
   spec: {}
 - apiVersion: v1
   kind: ImageStream
@@ -45,12 +45,12 @@ objects:
 - apiVersion: v1
   kind: BuildConfig
   metadata:
-    name: nodejs-rest-http-crud
+    name: nodejs-rest-http-crud-redhat
   spec:
     output:
       to:
         kind: ImageStreamTag
-        name: nodejs-rest-http-crud:latest
+        name: nodejs-rest-http-crud-redhat:latest
     postCommit: {}
     resources: {}
     source:
@@ -84,23 +84,23 @@ objects:
         targetPort: 8080
     type: ClusterIP
     selector:
-      project: nodejs-rest-http-crud
+      project: nodejs-rest-http-crud-redhat
       provider: nodeshift
   metadata:
-    name: nodejs-rest-http-crud
+    name: nodejs-rest-http-crud-redhat
     labels:
       provider: nodeshift
       expose: 'true'
-      project: nodejs-rest-http-crud
+      project: nodejs-rest-http-crud-redhat
       version: 1.0.0
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
-    name: nodejs-rest-http-crud
+    name: nodejs-rest-http-crud-redhat
     labels:
-      app: nodejs-rest-http-crud
+      app: nodejs-rest-http-crud-redhat
       provider: nodeshift
-      project: nodejs-rest-http-crud
+      project: nodejs-rest-http-crud-redhat
       version: 1.0.0
   spec:
     template:
@@ -137,8 +137,8 @@ objects:
               periodSeconds: 3
               successThreshold: 1
               timeoutSeconds: 1
-            image: nodejs-rest-http-crud
-            name: nodejs-rest-http-crud
+            image: nodejs-rest-http-crud-redhat
+            name: nodejs-rest-http-crud-redhat
             securityContext:
               privileged: false
             ports:
@@ -147,14 +147,14 @@ objects:
                 protocol: TCP
       metadata:
         labels:
-          app: nodejs-rest-http-crud
-          project: nodejs-rest-http-crud
+          app: nodejs-rest-http-crud-redhat
+          project: nodejs-rest-http-crud-redhat
           provider: nodeshift
           version: 1.0.0
     replicas: 1
     selector:
-      app: nodejs-rest-http-crud
-      project: nodejs-rest-http-crud
+      app: nodejs-rest-http-crud-redhat
+      project: nodejs-rest-http-crud-redhat
       provider: nodeshift
     triggers:
       - type: ConfigChange
@@ -162,23 +162,23 @@ objects:
         imageChangeParams:
           automatic: true
           containerNames:
-            - nodejs-rest-http-crud
+            - nodejs-rest-http-crud-redhat
           from:
             kind: ImageStreamTag
-            name: 'nodejs-rest-http-crud:latest'
+            name: 'nodejs-rest-http-crud-redhat:latest'
 - apiVersion: v1
   kind: Route
   spec:
     to:
       kind: Service
-      name: nodejs-rest-http-crud
+      name: nodejs-rest-http-crud-redhat
     port:
       targetPort: 8080
   metadata:
-    name: nodejs-rest-http-crud
+    name: nodejs-rest-http-crud-redhat
     labels:
       provider: nodeshift
-      project: nodejs-rest-http-crud
+      project: nodejs-rest-http-crud-redhat
       version: 1.0.0
 - apiVersion: v1
   kind: Secret
@@ -186,7 +186,7 @@ objects:
     name: my-database-secret
     labels:
       provider: nodeshift
-      app: nodejs-rest-http-crud
+      app: nodejs-rest-http-crud-redhat
       version: 1.0.0
   stringData:
     user: luke
