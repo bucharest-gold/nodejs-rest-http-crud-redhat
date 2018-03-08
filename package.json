@@ -1,7 +1,7 @@
 {
   "name": "nodejs-rest-http-crud-redhat",
   "description": "",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
