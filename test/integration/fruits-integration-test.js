@@ -77,7 +77,7 @@ function runTests (route) {
         t.equal(response.body.name, fruitData.name, `name is ${fruitData.name}`);
         t.equal(response.body.stock, fruitData.stock, `stock is ${fruitData.stock}`);
 
-        // clean up
+        // Clean up
         supertest(route).delete(`/api/fruits/${response.body.id}`).then(_ => ({}));
         t.end();
       });
@@ -91,7 +91,7 @@ function runTests (route) {
       .post('/api/fruits')
       .send(fruitData)
       .expect(422)
-      .then(response => {
+      .then(() => {
         t.pass('should fail with 422');
         t.end();
       });
@@ -99,7 +99,6 @@ function runTests (route) {
 
   // PUT a fruit
   test('PUT /api/fruit/:id', t => {
-    // t.plan(0);
     const fruitData = {
       name: 'put fruit',
       stock: '10'
@@ -122,8 +121,8 @@ function runTests (route) {
           .put(`/api/fruits/${id}`)
           .send(updatedFruit)
           .expect(204)
-          .then(putResponse => {
-            // clean up
+          .then(() => {
+            // Clean up
             t.pass('should return with an empty response');
             supertest(route).delete(`/api/fruits/${response.body.id}`).then(_ => ({}));
             t.end();
