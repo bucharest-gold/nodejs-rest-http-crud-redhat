@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/compare/v1.2.2...v2.0.0) (2018-05-17)
+
+
+### Features
+
+* start using node.js 10. ([#38](https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/issues/38)) ([29e5704](https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/commit/29e5704)), closes [#37](https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/issues/37)
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/bucharest-gold/nodejs-rest-http-crud-redhat/compare/v1.2.1...v1.2.2) (2018-04-27)
 
