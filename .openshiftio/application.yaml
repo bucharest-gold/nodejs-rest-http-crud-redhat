@@ -9,6 +9,7 @@ parameters:
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
     displayName: Source URL
+    value: https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat
     required: true
   - name: SOURCE_REPOSITORY_REF
     description: The branch name for the application
@@ -20,6 +21,14 @@ parameters:
     displayName: Source Directory
     value: .
     required: true
+  - name: RELEASE_VERSION
+    description: The location within the source repo of the application
+    displayName: release version
+    value: 1.2.3
+  - name: SUFFIX_NAME
+    description: The location within the source repo of the application
+    displayName: suffix name
+    value: ''
   - name: GITHUB_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook.
     displayName: GitHub Webhook Secret
@@ -30,7 +39,7 @@ objects:
   - apiVersion: v1
     kind: ImageStream
     metadata:
-      name: nodejs-rest-http-crud-redhat
+      name: 'nodejs-rest-http-crud-redhat${SUFFIX_NAME}'
     spec: {}
   - apiVersion: v1
     kind: ImageStream
@@ -45,7 +54,7 @@ objects:
   - apiVersion: v1
     kind: BuildConfig
     metadata:
-      name: nodejs-rest-http-crud-redhat
+      name: 'nodejs-rest-http-crud-redhat${SUFFIX_NAME}'
     spec:
       output:
         to:
@@ -86,21 +95,21 @@ objects:
         project: nodejs-rest-http-crud-redhat
         provider: nodeshift
     metadata:
-      name: nodejs-rest-http-crud-redhat
+      name: 'nodejs-rest-http-crud-redhat${SUFFIX_NAME}'
       labels:
         provider: nodeshift
         expose: 'true'
         project: nodejs-rest-http-crud-redhat
-        version: 1.2.3
+        version: '${RELEASE_VERSION}'
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
-      name: nodejs-rest-http-crud-redhat
+      name: 'nodejs-rest-http-crud-redhat${SUFFIX_NAME}'
       labels:
         app: nodejs-rest-http-crud-redhat
         provider: nodeshift
         project: nodejs-rest-http-crud-redhat
-        version: 1.2.3
+        version: '${RELEASE_VERSION}'
     spec:
       template:
         spec:
@@ -144,12 +153,16 @@ objects:
                 - containerPort: 8080
                   name: http
                   protocol: TCP
+              resources:
+                limits:
+                  cpu: '400m'
+                  memory: '256Mi'
         metadata:
           labels:
             app: nodejs-rest-http-crud-redhat
             project: nodejs-rest-http-crud-redhat
             provider: nodeshift
-            version: 1.2.3
+            version: '${RELEASE_VERSION}'
       replicas: 1
       selector:
         app: nodejs-rest-http-crud-redhat
@@ -164,21 +177,21 @@ objects:
               - nodejs-rest-http-crud-redhat
             from:
               kind: ImageStreamTag
-              name: 'nodejs-rest-http-crud-redhat:latest'
+              name: 'nodejs-rest-http-crud-redhat{SUFFIX_NAME}:${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Route
     spec:
       to:
         kind: Service
-        name: nodejs-rest-http-crud-redhat
+        name: 'nodejs-rest-http-crud-redhat{SUFFIX_NAME}'
       port:
         targetPort: 8080
     metadata:
-      name: nodejs-rest-http-crud-redhat
+      name: 'nodejs-rest-http-crud-redhat{SUFFIX_NAME}'
       labels:
         provider: nodeshift
         project: nodejs-rest-http-crud-redhat
-        version: 1.2.3
+        version: '${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Secret
     metadata:
@@ -186,7 +199,7 @@ objects:
       labels:
         provider: nodeshift
         app: nodejs-rest-http-crud-redhat
-        version: 1.2.3
+        version: '${RELEASE_VERSION}'
     stringData:
       user: luke
       password: secret
