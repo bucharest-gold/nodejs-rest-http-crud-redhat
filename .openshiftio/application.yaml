@@ -100,7 +100,7 @@ objects:
         provider: nodeshift
         expose: 'true'
         project: nodejs-rest-http-crud-redhat
-        version: '${RELEASE_VERSIOn}'
+        version: '${RELEASE_VERSION}'
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
@@ -109,7 +109,7 @@ objects:
         app: nodejs-rest-http-crud-redhat
         provider: nodeshift
         project: nodejs-rest-http-crud-redhat
-        version: '${RELEASE_VERSIOn}'
+        version: '${RELEASE_VERSION}'
     spec:
       template:
         spec:
@@ -162,7 +162,7 @@ objects:
             app: nodejs-rest-http-crud-redhat
             project: nodejs-rest-http-crud-redhat
             provider: nodeshift
-            version: '${RELEASE_VERSIOn}'
+            version: '${RELEASE_VERSION}'
       replicas: 1
       selector:
         app: nodejs-rest-http-crud-redhat
@@ -191,7 +191,7 @@ objects:
       labels:
         provider: nodeshift
         project: nodejs-rest-http-crud-redhat
-        version: '${RELEASE_VERSIOn}'
+        version: '${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Secret
     metadata:
@@ -199,7 +199,7 @@ objects:
       labels:
         provider: nodeshift
         app: nodejs-rest-http-crud-redhat
-        version: '${RELEASE_VERSIOn}'
+        version: '${RELEASE_VERSION}'
     stringData:
       user: luke
       password: secret
