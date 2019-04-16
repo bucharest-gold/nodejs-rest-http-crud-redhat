@@ -9,7 +9,7 @@ parameters:
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
     displayName: Source URL
-    value: https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat
+    value: 'https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat'
     required: true
   - name: SOURCE_REPOSITORY_REF
     description: The branch name for the application
@@ -24,7 +24,7 @@ parameters:
   - name: RELEASE_VERSION
     description: The location within the source repo of the application
     displayName: release version
-    value: 2.0.1
+    value: 2.0.2
   - name: SUFFIX_NAME
     description: The location within the source repo of the application
     displayName: suffix name
@@ -155,8 +155,8 @@ objects:
                   protocol: TCP
               resources:
                 limits:
-                  cpu: '400m'
-                  memory: '256Mi'
+                  cpu: 400m
+                  memory: 256Mi
         metadata:
           labels:
             app: nodejs-rest-http-crud-redhat
