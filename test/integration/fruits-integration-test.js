@@ -5,8 +5,7 @@ const supertest = require('supertest');
 const rhoaster = require('rhoaster');
 
 const testEnvironment = rhoaster({
-  deploymentName: 'nodejs-rest-http-crud-redhat',
-  dockerImage: 'registry.access.redhat.com/rhscl/nodejs-10-rhel7'
+  deploymentName: 'nodejs-rest-http-crud-redhat'
 });
 
 testEnvironment.deploy()
