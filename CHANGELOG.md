@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat/compare/v2.0.4...v2.0.5) (2020-04-27)
+
+
+### Bug Fixes
+
+* minor alert fix ([6211840](https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat/commit/6211840797da7bd2fa6ed9ab7487089b3f73dd71))
+
 ### [2.0.4](https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat/compare/v2.0.3...v2.0.4) (2019-11-26)
 
 ## [2.0.3](https://github.com/nodeshift-starters/nodejs-rest-http-crud-redhat/compare/v2.0.2...v2.0.3) (2019-08-07)
