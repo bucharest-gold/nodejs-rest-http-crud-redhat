@@ -9,7 +9,7 @@
     "test:integration": "tape test/integration/*.js | tap-spec",
     "test:integration:undeploy": "nodeshift undeploy",
     "lint": "xo",
-    "prepare": "echo 'To confirm CVE compliance, run \"npm run security-check\"' ",
+    "prepare": "npm run snyk-protect && echo 'To confirm CVE compliance, run \"npm run security-check\"' ",
     "security-check": "nsp check",
     "coverage": "nyc npm test",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
@@ -17,7 +17,8 @@
     "release": "standard-version -a",
     "openshift": "nodeshift --dockerImage=registry.access.redhat.com/ubi8/nodejs-12",
     "postinstall": "license-reporter report -s && license-reporter save -s --xml licenses.xml",
-    "start": "node ."
+    "start": "node .",
+    "snyk-protect": "snyk protect"
   },
   "main": "./bin/www",
   "standard-version": {
@@ -71,6 +72,8 @@
     "express": "~4.17.1",
     "kube-probe": "~0.4.0",
     "license-reporter": "~1.2.2",
-    "pg": "^7.8.2"
-  }
+    "pg": "^7.8.2",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
