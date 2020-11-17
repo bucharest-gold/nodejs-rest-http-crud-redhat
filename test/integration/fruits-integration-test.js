@@ -109,7 +109,7 @@ function runTests (route) {
       .send(fruitData)
       .expect(201)
       .then(response => {
-        const {id} = response.body;
+        const { id } = response.body;
 
         const updatedFruit = {
           name: response.body.name,
